@@ -19,10 +19,11 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "dotenv": "^7.0.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "@koa/cors": "^2.2.3"
+    "node-fetch": "^2.6.0"
   }
 }
