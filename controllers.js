@@ -31,7 +31,7 @@ exports.handleVote = (ctx, db) => {
     if (asistencia[votante]) {
       ctx.status = 407;
       ctx.body = JSON.stringify({
-        error: 'Un vote por forrite, campeon.',
+        error: 'Seamos serios vieja.',
       });
       console.log(`${votante} quizo votar de nuevo, esta vez por ${vote}`)
       return;
