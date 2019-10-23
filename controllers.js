@@ -1,3 +1,5 @@
+const isAfter = require('date-fns/isAfter')
+
 const forrites = {
   M2tLnmk: 'ariel', 
   Xmwdme6: 'evelin', 
@@ -46,11 +48,12 @@ exports.handleVote = (ctx, db) => {
 
 exports.showResults = (ctx, db) => {
   try {
-    console.log('Pidiendo los resultados');
+    const cierreComicios = new Date('2019-10-27T22:00Z');
+    const forritesMissing = Object.keys(asistencia).filter(forrite => !asistencia[forrite]);
+    const isVotingClosed = isAfter(Date.now(), cierreComicios) || forritesMissing.length === 0;
     ctx.status = 200;
     ctx.body = {
-      resultados: db,
-      asistencia
+      resultados: isVotingClosed ? db : false,
     };
   } catch (err) {
     console.log(err); // eslint-disable-line
