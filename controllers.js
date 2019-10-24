@@ -50,8 +50,8 @@ exports.showResults = (ctx, db) => {
   try {
     const votante = forrites[ctx.params.votante];
     const cierreComicios = new Date('2019-10-27T22:00Z');
-    const forritesMissing = Object.keys(asistencia).filter(forrite => !asistencia[forrite]);
-    const isVotingClosed = isAfter(Date.now(), cierreComicios) || forritesMissing.length === 0;
+    const hasEverybodyVoted = Object.values(asistencia).every(item => item);
+    const isVotingClosed = isAfter(Date.now(), cierreComicios) || hasEverybodyVoted;
 
     ctx.status = 200;
     ctx.body = {
