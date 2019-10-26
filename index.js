@@ -9,8 +9,11 @@ const bodyParser = require('koa-bodyparser');
 const router = require('./router');
 
 setInterval(() => {
-  fetch('http://losforritos.herokuapp.com/resultados')
-    .then(() => console.log('KeepAlive ran successfully!'))
+  fetch('https://forrites.herokuapp.com/fpFr67v')
+    .then(() => console.log('KeepAlive (client) ran successfully!'))
+    .error(err => console.log(err))
+  fetch('https://forrites-backend.herokuapp.com/results/fpFr67v')
+    .then(() => console.log('KeepAlive (server) ran successfully!'))
     .error(err => console.log(err))
 }, 20 * 60 * 1000);
 
