@@ -46,12 +46,13 @@ exports.handleVote = (ctx, db) => {
   }
 };
 
-exports.showResults = (ctx, db) => {
+exports.checkResults = (ctx, db) => {
   try {
     const votante = forrites[ctx.params.votante];
     const cierreComicios = new Date('2019-10-27T22:00Z');
     const hasEverybodyVoted = Object.values(asistencia).every(item => item);
     const isVotingClosed = isAfter(Date.now(), cierreComicios) || hasEverybodyVoted;
+    console.log(`${votante} entró en su link`);
 
     ctx.status = 200;
     ctx.body = {
