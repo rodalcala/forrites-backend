@@ -10,7 +10,7 @@ const router = require('./router');
 
 setInterval(() => {
   fetch('http://losforritos.herokuapp.com/resultados')
-    .then(() => console.log('KeepAlive runned succesfully!'))
+    .then(() => console.log('KeepAlive ran successfully!'))
     .error(err => console.log(err))
 }, 20 * 60 * 1000);
 
